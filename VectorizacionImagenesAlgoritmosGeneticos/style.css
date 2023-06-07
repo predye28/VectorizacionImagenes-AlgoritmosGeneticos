@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+html{
+    background-color: #1f1f1f;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+#header {
+    text-align: center;
+    padding: 10px;
+    
+    font-size: 22px;
+}
+  
+#content {
+    display: flex;
+}
+  
+#left, #center, #right {
+    padding: 10px;
+}
+  
+#left{
+    flex-basis: 23%;
+    font-size: 11px;
+    text-align: left;
+}
+#right{
+    flex-basis: 23%;
+    font-size: 13px;
+    text-align: right;
+}
+  
+#center {
+    flex-grow: 1;
+    color: white;
+}
+#marco{
+    background-color: white;
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+}
+canvas {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+#mensajeFinal{
+    text-align: center;
+}
+.sliderClass {
+    width: 65%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.buttonElegante{
+
+    padding: 10px 20px;
+    font-size: 23px;
+    background-color: #ddd;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Lato', sans-serif;
+
+}
+.buttonElegante:hover {
+    background-color: #3674a8;
+}
+.buttonEleganteStart{
+
+    padding: 10px 20px;
+    font-size: 23px;
+    background-color: #ddd;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Lato', sans-serif;
+
+}
+.buttonEleganteStart:hover {
+    background-color: #a52f2f;
+}

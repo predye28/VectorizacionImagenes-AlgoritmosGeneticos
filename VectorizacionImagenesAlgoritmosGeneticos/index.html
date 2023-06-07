@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>genetic algorithm</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script async src="https://docs.opencv.org/master/opencv.js"  type="text/javascript"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>Genetic algorithm drawing</h1>
+  </div>
+  <div id="content">
+    <div id="left">
+      <h2 id="numberPoints">Points: 2</h1>
+      <div id="slider-points">
+          <input type="range" class="sliderClass" id="sliderPOINTS" min="1" max="200" value="2" oninput="updateNumber('Points: ',this.value,'numberPoints')">
+      </div>
+      <h2 id="numberPointsMax">Maximum Points: 20</h1>
+        <div id="slider-pointsMax">
+            <input type="range" class="sliderClass" id="sliderPOINTSMAX" min="1" max="200" value="20" oninput="updateNumber('Maximum Points: ',this.value,'numberPointsMax')">
+        </div>
+      <h2 id="numberGenerations">Generations: 20</h1>
+      <div id="slider-generations">
+          <input type="range" class="sliderClass" id="sliderGENERATIONS" min="1" max="200" value="20" oninput="updateNumber('Generations: ',this.value,'numberGenerations')">
+      </div>
+      <h2 id="numberIndividualsPoblation">Individuals in the population: 20</h1>
+      <div id="slider-individualsPoblation">
+          <input type="range" class="sliderClass" id="sliderINDIVIDUALS" min="1" max="100" value="20" oninput="updateNumber('Individuals in the population: ',this.value,'numberIndividualsPoblation')">
+      </div>
+      <h2 id="numberIndividualsGeneration">% of individuals in each generation selected: 20%</h1>
+      <div id="slider-individualsGeneration">
+          <input type="range" class="sliderClass" id="sliderPercentageIndividualsGeneration" min="1" max="100" value="20" oninput="updateNumberPorcentaje('% of individuals in each generation selected: ',this.value,'numberIndividualsGeneration')">
+      </div>
+      <h2 id="numberIndividualsMutate">% of individuals who can mutate: 40%</h1>
+      <div id="slider-individualsMutate">
+          <input type="range" class="sliderClass" id="sliderIndividualMutate" min="1" max="100" value="40"oninput="updateNumberPorcentaje('% of individuals who can mutate: ',this.value,'numberIndividualsMutate')">
+      </div>
+      <h2 id="numberIndividualsMix">% of individuals who can mix: 40%</h1>
+      <div id="slider-individualsMix">
+          <input type="range" class="sliderClass" id="sliderIndividualMix" min="1" max="100" value="40"oninput="updateNumberPorcentaje('% of individuals who can mix: ',this.value,'numberIndividualsMix')">
+      </div>
+      <br>
+      
+    </div>
+
+    
+    <div id="center">
+
+      <h2>Insert drawing black and white:</h2>
+      <div class="inputoutput">
+        <img id="imageSrc" alt="No Image" />
+        <input type="file" id="fileInput" name="file" />
+      </div>
+      
+      <br>
+      <button class="buttonEleganteStart"id="buttonChange" onclick="geneticAlgorithm()">Start drawing</button>
+      
+      <h2 id="procesoResultado"></h2>
+      
+
+      <h2 id="currentGeneration"></h2>
+      <div id="marco">
+        <canvas id="canvasFinal"></canvas>
+      </div>
+      <h5 id="displayIndividual">Show all individuals in the population every 200 milliseconds</h5>
+      <h2 id="mensajeFinal"></h2>
+      <button class="buttonEleganteStart"id="buttonChange" onclick="reiniciar()">Reset</button>
+    </div>
+
+    <div id="right">
+      <h2 id="creacionGeneracionActual">Current generation of genetic algorithm: 0</h2>
+      <h2 id="totalTime">Total time: 0</h2>
+      <h2 id="timeGenerations">Average time for generations: 0</h2>
+      
+      <p id="status">OpenCV.js is loading...</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
