@@ -330,8 +330,66 @@ function mostrarGeneracion(generacion) {
   }, tiempoEspera * generacion.length * generacion[generacion.length - 1].length + tiempoEspera);
 }
 
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const imgElement = document.getElementById('imageSrc');
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imgElement.src = e.target.result;
+            imgElement.style.display = 'block';
+            imgElement.alt = 'Selected Image';
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
 
+const inputOutput = document.querySelector('.inputoutput');
+
+inputOutput.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    this.style.borderColor = '#6c63ff';
+    this.style.background = '#2f2f2f';
+});
+
+inputOutput.addEventListener('dragleave', function(e) {
+    e.preventDefault();
+    this.style.borderColor = '#3a3a3a';
+    this.style.background = '#2a2a2a';
+});
+
+inputOutput.addEventListener('drop', function(e) {
+    e.preventDefault();
+    this.style.borderColor = '#3a3a3a';
+    this.style.background = '#2a2a2a';
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        const file = files[0];
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            const imgElement = document.getElementById('imageSrc');
+            
+            reader.onload = function(e) {
+                imgElement.src = e.target.result;
+                imgElement.style.display = 'block';
+                imgElement.alt = 'Selected Image';
+            };
+            reader.readAsDataURL(file);
+            
+            // Actualizar también el input file
+            document.getElementById('fileInput').files = files;
+        }
+    }
+});
+
+function downloadSampleImages() {7
+    const downloadUrl = "https://drive.google.com/drive/u/0/folders/1rrGzD_VNUAa-IWaH6kaKCcEej97xg6Ci";
+
+    window.open(downloadUrl, '_blank');
+}
 
 function updateNumber(text,value,idp) {
   document.getElementById(idp).textContent = text + value;
